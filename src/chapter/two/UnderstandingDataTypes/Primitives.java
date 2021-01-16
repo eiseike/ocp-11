@@ -1,4 +1,4 @@
-package chapterTwo.UnderstandingDataTypes;
+package chapter.two.UnderstandingDataTypes;
 
 public class Primitives {
     public static void main(String[] args) {

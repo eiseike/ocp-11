@@ -1,4 +1,4 @@
-package chapterTwo.UnderstandingDataTypes;
+package chapter.two.UnderstandingDataTypes;
 
 public class WaterBottle {
     private String brand;

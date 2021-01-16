@@ -1,4 +1,4 @@
-package chapterTwo.UnderstandingDataTypes;
+package chapter.two.UnderstandingDataTypes;
 
 public class Identifiers {
 
@@ -80,14 +80,21 @@ public class Identifiers {
 //        byte hollywood@vine; // @ is not a letter, digit, $ or _
 //        String *$coffee;     // * is not a letter, digit, $ or _
 //        double public;       // public is a reserved word
-
-        /*
-        A reserved type name means it cannot be used to define a type, such as a class, interface, or enum.
-        var is one of them:
-          public class var {  // DOES NOT COMPILE
-            public var() {
-            }
-          }
-          */
     }
+
+/*
+A reserved type name means it cannot be used to define a type, such as a class, interface, or enum.
+var is one of them:
+    public class var {  // DOES NOT COMPILE
+        public var() {
+        }
+    }
+*/
+
+    public class Var {  // DOES COMPILE
+        public void var() {
+            var var = 1;
+        }
+    }
+
 }
