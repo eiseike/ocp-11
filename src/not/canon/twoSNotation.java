@@ -1,6 +1,6 @@
 package not.canon;
 
-public class oneSNotation {
+public class twoSNotation {
 
     public static void main(String[] args) {
 
@@ -19,29 +19,20 @@ public class oneSNotation {
 
         0 0 1 1 == plus 3
 
-        flip plus 3 => 1 1 0 0
+        minus 3 => flip plus 3 => 1 1 0 0 add one to it => 1 1 0 1
 
-        add it =>
 
-        0 1 1 1 +
-        1 1 0 0 =
+        0 1 1 1 +  (7 + -3)
+        1 1 0 1 =
         -------
-    c1  0 0 1 1
+     c1 0 1 0 0
 
-        one carry remains, add it to the result:
-
-        0 0 1 1 +
-        0 0 0 1 =
-        -------
-        0 1 0 0
+        one carry remains, but simply throw it away
 
         the result is 0100 == 4 :)
 
         */
 
-
-
-        System.out.println("~3 = " + ~3);
 
     }
 }
