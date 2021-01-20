@@ -51,4 +51,7 @@ public class NumericPromotion {
     public static Class g(double d) {
         return double.class;
     }
+    public static Class g(Character c) {
+        return Character.class;
+    }
 }

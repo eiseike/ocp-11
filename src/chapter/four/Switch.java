@@ -1,5 +1,7 @@
 package chapter.four;
 
+import java.time.DayOfWeek;
+
 public class Switch {
 
     public static void main(String[] args) {
@@ -111,6 +113,21 @@ public class Switch {
                 */
         }
         return id;
+    }
+
+    private DayOfWeek getWeekDay(int day, final int thursday) {
+        int otherDay = day;
+        int Sunday = 0;
+        switch(otherDay) {
+            default:
+//            case 1: continue; //DNC: Error:(123, 21) java: continue outside of loop
+//            case thursday: return DayOfWeek.THURSDAY; //DNC: thursday - constant expression required (final but not static)
+            case 2: break;
+            //case Sunday: return DayOfWeek.SUNDAY; //DNC Sunday: not static final
+//            case DayOfWeek.MONDAY: return DayOfWeek.MONDAY; //DNC: incompatible types: java.time.DayOfWeek cannot be converted to int
+
+        }
+        return DayOfWeek.FRIDAY;
     }
 
 }

@@ -31,5 +31,21 @@ public class For {
             */
         }
 
+        int[] weather = new int[]{1,2,3};
+        for(int i = 0; i <= weather.length - 1; ++i) {
+            System.out.println(weather[i]);
+        }
+        for (int i = weather.length - 1; i >= 0; i--) {
+            System.out.println(weather[i]);
+        }
+        /*
+        for (int i = 0, int j = 3;i<weather.length ;++i){ //int i=0, int j=3 was a trap!
+            System.out.println(weather[i]);
+        }
+
+         */
+        for (int i = 0; ++i < 10 && i < weather.length; ) {
+            System.out.println(weather[i]);
+        }
     }
 }
