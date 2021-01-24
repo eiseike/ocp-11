@@ -50,7 +50,15 @@ public class Strings {
             System.out.println(string.charAt(0));  // a
             System.out.println(string.charAt(6));  // s
             //System.out.println(string.charAt(7));  // throws StringIndexOutOfBoundsException
-
+        }
+        {
+            String string = "animals";
+            System.out.println(string.indexOf('a'));         // 0
+            System.out.println(string.indexOf('a',0));         // 0
+            System.out.println(string.indexOf('a',1));         // 4
+            System.out.println(string.indexOf('a', 4));      // 4
+            System.out.println(string.indexOf("al"));        // 4
+            System.out.println(string.indexOf("al", 5));     // -1
         }
         {
             String string = "animals";
@@ -164,9 +172,80 @@ public class Strings {
             System.out.println(sub + " " + len + " " + ch); //anim 7 s
         }
         {
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb2 = sb.append("1");
+            // System.identityHashCode(sb) == System.identityHashCode(sb2)
+
+        }
+        {
             StringBuilder sb = new StringBuilder().append(1).append('c');
             sb.append("-").append(true);
             System.out.println(sb);      // 1c-true
+        }
+        {
+            // new StringBuilder("abc").insert(0,"x") => xabc
+            // new StringBuilder("abc").insert(1,"x") => axbc
+            // new StringBuilder("abc").insert(2,"x") => abxc
+            // new StringBuilder("abc").insert(3,"x") => abcx
+            // new StringBuilder("abc").insert(4,"x") => java.lang.StringIndexOutOfBoundsException: offset 4,length 3
+            // new StringBuilder("abc").insert(-1,"x") => java.lang.StringIndexOutOfBoundsException: offset -1,length 3
+            StringBuilder sb = new StringBuilder("animals");
+            sb.insert(7, "-");                   // sb = animals-
+            sb.insert(0, "-");                   // sb = -animals-
+            sb.insert(4, "-");                   // sb = -ani-mals-
+        }
+        {
+            StringBuilder builder;
+            builder = new StringBuilder("pigeon dirty").replace(3, 6, "sty");
+            System.out.println("builder = " + builder); //  pigsty dirty
+            builder = new StringBuilder("pigeon dirty").replace(3, 6, "s are");
+            System.out.println("builder = " + builder); // pigs are dirty
+            builder = new StringBuilder("pigeon dirty").replace(3, 6, "");
+            System.out.println("builder = " + builder); // pig dirty
+            /*
+            builder = pigsty dirty
+            builder = pigs are dirty
+            builder = pig dirty
+             */
+            builder = new StringBuilder("pigeon dirty").replace(0, 0, "xxx");
+            System.out.println("builder = " + builder); // xxxpigeon dirty
+
+            //builder = new StringBuilder("pigeon dirty").replace(1, 0, "xxx");
+            //java.lang.StringIndexOutOfBoundsException: start 1, end 0, length 12
+
+            //builder = new StringBuilder("pigeon dirty").replace(-1, 0, "xxx");
+            //java.lang.StringIndexOutOfBoundsException: start -1, end 0, length 12
+
+            builder = new StringBuilder("pigeon dirty").replace(0, 9999, "xxx");
+            System.out.println("builder = " + builder); // builder = xxx
+        }
+        {
+            StringBuilder one = new StringBuilder();
+            StringBuilder two = new StringBuilder();
+            StringBuilder three = one.append("a");
+            System.out.println(one == two); // false
+            System.out.println(one == three); // true
+        }
+        {
+            // The string pool contains literal values and constants that appear in your program.
+            String s = "I LOVE JAVA"; // Literal
+            String s2 = "I " + "LOVE " + "JAVA"; // Compile time constant.
+            System.out.println("(s==s2) = " + (s == s2)); // (s==s2) = true
+
+            // compiled dynamically, not in string pool
+            String s3 = new String("I LOVE JAVA");
+            System.out.println("(s==s3) = " + (s == s3)); // (s==s3) = false
+
+            // compiled dynamically, but forced to use the string pool
+            String s4 = new String("I LOVE JAVA").intern();
+            System.out.println("(s==s3) = " + (s == s4)); // (s==s3) = true
+
+        }
+        {
+            String x = "Hello World";
+            String z = " Hello World".trim();
+            System.out.println(x == z);      // false
+            System.out.println(x.equals(z)); // true
         }
     }
 }
