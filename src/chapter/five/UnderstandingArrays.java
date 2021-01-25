@@ -30,6 +30,9 @@ public class UnderstandingArrays {
             var array3 = new int[]{1};
             var array4 = new int[] {1};
             var array5 = new int [] {1};
+            var array6 = new int[2][2];
+            array6[0][0]=1; // [[1, 0], [0, 0]]
+            System.out.println("array6 = " + Arrays.deepToString(array6));
         }
         {
             int[] numbers1 = new int[3]; // {0,0,0}
@@ -225,7 +228,26 @@ public class UnderstandingArrays {
         }
 
         {
+            int [][] args = new int[4][]; // [null,        null,    null, null]
+            args[0] = new int[5];         // [[0,0,0,0,0], null,    null, null]
+            args[1] = new int[3];         // [[0,0,0,0,0], [0,0,0], null, null]
+            System.out.println("(Arrays.deepToString(args)) = " + (Arrays.deepToString(args)));
+            //(Arrays.deepToString(args)) = [[0, 0, 0, 0, 0], [0, 0, 0], null, null]
 
+        }
+        {
+            int[][] twoD = new int[3][2];
+            for (int i = 0; i < twoD.length; i++) {
+                for (int j = 0; j < twoD[i].length; j++)
+                    System.out.print(twoD[i][j] + " "); // print element
+                System.out.println();                  // time for a new row
+            }
+
+            for (int[] inner : twoD) {
+                for (int num : inner)
+                    System.out.print(num + " ");
+                System.out.println();
+            }
         }
     }
 }
