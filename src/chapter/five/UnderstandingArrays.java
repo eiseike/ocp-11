@@ -5,9 +5,17 @@ import java.util.Arrays;
 public class UnderstandingArrays {
     public static void main(String... arr) {
         {
+            Character[] Characters = new Character[3]; // [null, null, null]
+            System.out.println("Arrays.toString(Characters) = " + Arrays.toString(Characters));
+        }
+        {
+            char[] chars = new char[3]; // [ ,  ,  ]
+            System.out.println("Arrays.toString(chars) = " + Arrays.toString(chars));
+        }
+        {
             int[] numbers1 = new int[3];
-            for (int i : numbers1) {
-                System.out.println("i = " + i); /// 0 0 0
+            for (int i = 0; i < numbers1.length; i++) {
+                System.out.println("numbers1[" + i + "] = " + numbers1[i]); /// 0 0 0
             }
         }
         {
@@ -18,10 +26,10 @@ public class UnderstandingArrays {
         }
         {
             var array1 = new int[1];
-            var array2 = new int[1];
+            var array2 = new int [1];
             var array3 = new int[]{1};
-            var array4 = new int[]{1};
-            var array5 = new int[]{1};
+            var array4 = new int[] {1};
+            var array5 = new int [] {1};
         }
         {
             int[] numbers1 = new int[3]; // {0,0,0}
@@ -52,10 +60,32 @@ public class UnderstandingArrays {
             //[cricket, beetle, ladybug]
         }
         {
+            class AwesomeClass {
+
+                int ClassStrings1[]; // int[] is an object, and
+                // an uninitialized class object is null.
+                int ClassStrings2[] = new int[1];
+
+                public AwesomeClass() {
+
+                    {
+                        int methodStrings1[]; // int[] is an object, and an uninitialized
+                        // local object is uninitialized.
+                        int methodStrings2[] = new int[1];
+
+                        System.out.println(Arrays.toString(ClassStrings1)); // null
+                        System.out.println(Arrays.toString(ClassStrings2)); // [0]
+                        //System.out.println(Arrays.toString(methodStrings1));
+                        // DNC: variable methodStrings1 might not have been initialized
+                        System.out.println(Arrays.toString(methodStrings2)); //[0]
+
+                    }
+                }
+            }
             new AwesomeClass();
         }
         {
-            String[] strings = { "stringValue" };
+            String[] strings = {"stringValue"};
             Object[] objects = strings;
             String[] againStrings = (String[]) objects;
             //againStrings[0] = new StringBuilder(); //DNC
@@ -64,21 +94,21 @@ public class UnderstandingArrays {
 
         }
         {
-            int[] numbers = { 100, 9, 10 };
+            int[] numbers = {100, 9, 10};
             Arrays.sort(numbers);
-            var r = Arrays.toString(numbers); //[9, 10, 100]
+            var r = Arrays.toString(numbers); // [9, 10, 100]
             System.out.println(r);
         }
         {
-            String[] numbers = { "100", "9", "10" };
+            String[] numbers = {"100", "9", "10", "11"};
             Arrays.sort(numbers);
-            var r = Arrays.toString(numbers); //[10, 100, 9]
+            var r = Arrays.toString(numbers); // [10, 100, 11, 9] <-- wtf...
             System.out.println(r);
         }
 
         {
 
-            int[] numbers = {2,4,6,8};
+            int[] numbers = {2, 4, 6, 8};
             System.out.println(Arrays.binarySearch(numbers, 2)); // 0
             System.out.println(Arrays.binarySearch(numbers, 4)); // 1
             System.out.println(Arrays.binarySearch(numbers, 1)); // -1
@@ -87,28 +117,28 @@ public class UnderstandingArrays {
 
         }
         {
-            int[] numbers = new int[] {3,2,1};
+            int[] numbers = new int[]{3, 2, 1};
             System.out.println(Arrays.binarySearch(numbers, 2)); // 1
             System.out.println(Arrays.binarySearch(numbers, 3)); // -4 ???
         }
         {
-            System.out.println(Arrays.compare(new int[] {1}, new int[] {2}));
+            System.out.println(Arrays.compare(new int[]{1}, new int[]{2}));
             // -
-            System.out.println(Arrays.compare(new int[] {2}, new int[] {2}));
+            System.out.println(Arrays.compare(new int[]{2}, new int[]{2}));
             // 0
-            System.out.println(Arrays.compare(new int[] {2}, new int[] {1}));
+            System.out.println(Arrays.compare(new int[]{2}, new int[]{1}));
             // +
         }
         {
-            System.out.println(Arrays.compare(new int[] {1,2}, new int[] {1,2}));
+            System.out.println(Arrays.compare(new int[]{1, 2}, new int[]{1, 2}));
             // 0
-            System.out.println(Arrays.compare(new int[] {1,2}, new int[] {1,2,3}));
+            System.out.println(Arrays.compare(new int[]{1, 2}, new int[]{1, 2, 3}));
             // -
-            System.out.println(Arrays.compare(new int[] {1,2,3}, new int[] {1,2}));
+            System.out.println(Arrays.compare(new int[]{1, 2, 3}, new int[]{1, 2}));
             // +
-            System.out.println(Arrays.compare(new int[] {1,2}, new int[] {1,3}));
+            System.out.println(Arrays.compare(new int[]{1, 2}, new int[]{1, 3}));
             // -
-            System.out.println(Arrays.compare(new int[] {1,3}, new int[] {1,2}));
+            System.out.println(Arrays.compare(new int[]{1, 3}, new int[]{1, 2}));
             // +
         }
         {
@@ -129,31 +159,72 @@ public class UnderstandingArrays {
             // a vs aa => "" vs a
         }
         {
-            System.out.println(Arrays.mismatch(new int[] {1}, new int[] {1})); // -1
-            System.out.println(Arrays.mismatch(new String[] {"a"}, new String[] {"A"})); // 0
-            System.out.println(Arrays.mismatch(new int[] {1, 2}, new int[] {1})); // 1
+            System.out.println(Arrays.mismatch(new int[]{1}, new int[]{1})); // -1
+            System.out.println(Arrays.mismatch(new String[]{"a"}, new String[]{"A"})); // 0
+            System.out.println(Arrays.mismatch(new int[]{1, 2}, new int[]{1})); // 1
         }
-    }
-}
-
-class AwesomeClass {
-
-    int ClassStrings1[]; // int[] is an object, and
-                         // an uninitialized class object is null.
-    int ClassStrings2[] = new int[1];
-
-    public AwesomeClass() {
 
         {
-            int methodStrings1[]; // int[] is an object, and an uninitialized
-                                  // local object is uninitialized.
-            int methodStrings2[] = new int[1];
+            // gagyisort
+            int[] unsorted = new int[]{7, 3, 8, 23, 54, 1, 7, 42, 5, 1};
+            for (int t = 0; t < unsorted.length; t++) {
+                for (int y = t + 1; y < unsorted.length; y++) {
+                    if (unsorted[t] == unsorted[y]) {
 
-            System.out.println(Arrays.toString(ClassStrings1)); // null
-            System.out.println(Arrays.toString(ClassStrings2)); // [0]
-            //System.out.println(Arrays.toString(methodStrings1));
-            // DNC: variable methodStrings1 might not have been initialized
-            System.out.println(Arrays.toString(methodStrings2)); //[0]
+                    } else if (unsorted[t] > unsorted[y]) {
+                        int v = unsorted[t];
+                        unsorted[t] = unsorted[y];
+                        unsorted[y] = v;
+                    }
+                }
+            }
+            System.out.println("Arrays.toString(unsorted) = " + Arrays.toString(unsorted));
+        }
+        {
+            // gagyisort 2 : lexicographic sort of strings
+            String[] unsorted = new String[]{"33339", "5", "55", "2", "323", "5", "8", "23", "236", "234", "235", "234", "22", "1", "222", "345", "11", "33330"};
+
+            /*
+
+            1,
+            11,
+
+            2,
+            22,
+            222,
+            23,
+            234,
+            234,
+            235,
+            236,
+
+            323,
+            33330,
+            33339,
+            345,
+
+            5,
+            5,
+            55,
+
+            8
+
+             */
+            for (int t = 0; t < unsorted.length; t++) {
+                for (int y = t + 1; y < unsorted.length; y++) {
+                    if (unsorted[t].compareTo(unsorted[y]) == 0) {
+
+                    } else if (unsorted[t].compareTo(unsorted[y]) > 0) {
+                        String v = unsorted[t];
+                        unsorted[t] = unsorted[y];
+                        unsorted[y] = v;
+                    }
+                }
+            }
+            System.out.println("Arrays.toString(unsorted) = " + Arrays.toString(unsorted));
+        }
+
+        {
 
         }
     }
