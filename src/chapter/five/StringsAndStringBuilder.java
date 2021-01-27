@@ -326,6 +326,22 @@ public class StringsAndStringBuilder {
 			System.out.println(numbers.substring(7, 7));
 			System.out.println(numbers.substring(7));
 		}
+		{
+
+
+			class Lion {
+				public void roar(String roar1, StringBuilder roar2) {
+					roar1.concat("!!!");
+					roar2.append("!!!");
+				}
+			}
+			String roar1 = "roar";
+			StringBuilder roar2 = new StringBuilder("roar");
+			new Lion().roar(roar1, roar2);
+			System.out.println(roar1 + " " + roar2);
+
+
+		}
 	}
 }
 
