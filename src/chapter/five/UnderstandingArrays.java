@@ -39,18 +39,14 @@ public class UnderstandingArrays {
             int[] numbers2 = new int[]{1, 2, 3}; // {1,2,3}
             int[] numbers3 = new int[]{1, 2, 3}; // {1,2,3}
             int[] numbers4 = numbers2;
-            System.out.println("(numbers3==numbers2) = " + (numbers3 == numbers2));
-            System.out.println("(numbers3.equals(numbers2)) = " + (numbers3.equals(numbers2)));
-            System.out.println("Arrays.equals(numbers3, numbers2) = " + Arrays.equals(numbers3, numbers2));
-            System.out.println("(numbers4==numbers2) = " + (numbers4 == numbers2));
-            System.out.println("(numbers4.equals(numbers2)) = " + (numbers4.equals(numbers2)));
-            System.out.println("Arrays.equals(numbers4, numbers2) = " + Arrays.equals(numbers4, numbers2));
-            //(numbers3==numbers2) = false
-            //(numbers3.equals(numbers2)) = false
-            //Arrays.equals(numbers3, numbers2) = true
-            //(numbers4==numbers2) = true
-            //(numbers4.equals(numbers2)) = true
-            //Arrays.equals(numbers4, numbers2) = true
+
+            //(numbers3 == numbers2) == false
+            //(numbers3.equals(numbers2)) == false\
+            //Arrays.equals(numbers3, numbers2) == true
+
+            //(numbers4==numbers2) == true
+            //(numbers4.equals(numbers2)) == true
+            //Arrays.equals(numbers4, numbers2) == true
 
         }
         {
@@ -248,6 +244,25 @@ public class UnderstandingArrays {
                     System.out.print(num + " ");
                 System.out.println();
             }
+        }
+
+        {
+            String[] abc = new String[]{"a","b","c"};
+            String[] acb = new String[]{"a","c","b"};
+            System.out.println("Arrays.compare(abc,acb) = " + Arrays.compare(abc, acb));
+        }
+        {
+            java.util.Date[] dates[] = new java.util.Date[2][];
+            System.out.println("Arrays.deepToString(dates) = " + Arrays.deepToString(dates));
+        }
+        {
+            // int[][] types = new int[]; //DNC: array dimension missing
+            // int[][] java = new int[][]; //DNC: array dimension missing
+
+            Object[][][] cubbies = new Object[3][0][5]; //VALID!!!!
+            //cubbies[1][1][1] = 1; //ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 0
+            System.out.println("Arrays.deepToString(cubbies) = " + Arrays.deepToString(cubbies));
+
         }
     }
 }

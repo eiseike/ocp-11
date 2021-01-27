@@ -1,8 +1,11 @@
 package chapter.five;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import static chapter.three.NumericPromotion.g;
 
 public class UnderstandingArrayLists {
 	public static void main(String[] args) {
@@ -141,6 +144,7 @@ public class UnderstandingArrayLists {
 			List<String> one = new ArrayList<>(); // -> 1[]
 			List<String> two = new ArrayList<>(); // -> 1[],2[]
 			System.out.println(one.equals(two));  // true
+			//System.out.println(one.remove(0)); //throws IndexOutOfBoundsException: Index 0 out of bounds for length 0
 			one.add("a");                         // true -> 1[a],2[]
 			System.out.println(one.equals(two));  // false
 			two.add("a");                         // [a]  -> 1[a],2[a]
@@ -162,6 +166,36 @@ public class UnderstandingArrayLists {
 			l.add(5);
 			Collections.sort(l);
 			System.out.println(l); // [1, 5, 9]
+		}
+
+		{
+			List<Integer> list = Arrays.asList(10, 4, -1, 5);
+			int[] array = {6, -4, 12, 0, -10};
+			Collections.sort(list);
+
+			Integer converted[] = list.toArray(new Integer[4]);
+			System.out.println(converted[0]);
+			System.out.println(Arrays.binarySearch(array, 12));
+		}
+
+		{
+			List<String> gorillas = new ArrayList<>(); // String
+			//gorillas.add(1);
+			gorillas.add("A");
+			for(var koko : gorillas)
+				System.out.println(g(koko));
+
+			var monkeys = new ArrayList<>(); // Object
+			monkeys.add(1);
+			monkeys.add("A");
+			for(var albert : monkeys)
+				System.out.println(g(albert));
+
+			List chimpanzees = new ArrayList<Integer>(); // Object
+			chimpanzees.add(1);
+			chimpanzees.add("A");
+			for(var ham : chimpanzees)
+				System.out.println(g(ham));
 		}
 	}
 }
