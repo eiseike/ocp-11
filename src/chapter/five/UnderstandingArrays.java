@@ -1,6 +1,8 @@
 package chapter.five;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class UnderstandingArrays {
     public static void main(String... arr) {
@@ -263,6 +265,51 @@ public class UnderstandingArrays {
             //cubbies[1][1][1] = 1; //ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 0
             System.out.println("Arrays.deepToString(cubbies) = " + Arrays.deepToString(cubbies));
 
+        }
+        {
+            List al = new ArrayList();
+            al.add(new Integer[]{1,2,3});
+            al.add(new Integer[]{2,3,4});
+
+            System.out.println("al = " + al);
+
+            Object[] objects = al.toArray();
+
+            Integer[] object = (Integer[]) objects[0];
+            object[0]=0;
+
+            Object[] objects2 = al.toArray();
+            Integer[] object2 = (Integer[]) objects[0];
+            System.out.println("object2[0] = " + object2[0]);
+            System.out.println("shallow!!!!!");
+        }
+        {
+            List al = new ArrayList();
+            al.add(1);
+            al.add(2);
+
+            System.out.println("al = " + al);
+
+            Object[] objects = al.toArray();
+
+            objects[0]=0;
+
+            Object[] objects2 = al.toArray();
+            System.out.println("objects2[0] = " + objects2[0]);
+        }
+        {
+            List al = new ArrayList();
+            al.add(Integer.valueOf(1));
+            al.add(Integer.valueOf(2));
+
+            System.out.println("al = " + al);
+
+            Object[] objects = al.toArray();
+
+            objects[0]=Integer.valueOf(0);
+
+            Object[] objects2 = al.toArray();
+            System.out.println("objects2[0] = " + objects2[0]);
         }
     }
 }

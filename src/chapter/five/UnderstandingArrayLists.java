@@ -182,20 +182,34 @@ public class UnderstandingArrayLists {
 			List<String> gorillas = new ArrayList<>(); // String
 			//gorillas.add(1);
 			gorillas.add("A");
-			for(var koko : gorillas)
+			for (var koko : gorillas)
 				System.out.println(g(koko));
 
 			var monkeys = new ArrayList<>(); // Object
 			monkeys.add(1);
 			monkeys.add("A");
-			for(var albert : monkeys)
+			for (var albert : monkeys)
 				System.out.println(g(albert));
 
 			List chimpanzees = new ArrayList<Integer>(); // Object
 			chimpanzees.add(1);
 			chimpanzees.add("A");
-			for(var ham : chimpanzees)
+			for (var ham : chimpanzees)
 				System.out.println(g(ham));
+		}
+		{
+			char[] c = new char[2];
+			ArrayList l = new ArrayList();
+			int length = c.length + l.size();
+
+		}
+		{
+			var list = new ArrayList<String>();
+			list.add("one");
+			list.add("two");
+			//list.add(7); //DNC: incompatible types: int cannot be converted to java.lang.String
+			for (var s : list) System.out.print(s);
+
 		}
 	}
 }

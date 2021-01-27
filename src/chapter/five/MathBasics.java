@@ -1,6 +1,9 @@
 package chapter.five;
 
 
+import java.util.Arrays;
+import java.util.List;
+
 public class MathBasics {
 	public static void main(String[] args) {
 
@@ -37,5 +40,17 @@ public class MathBasics {
 			double num = Math.random(); // 0 =< num < 1
 
 		}
+
+
+		{
+			double one = Math.pow(1, 2);
+			//int two = Math.round(1.0); //incompatible types: possible lossy conversion from long to int
+			//float three = Math.random(); //incompatible types: possible lossy conversion from double to float
+			var doubles = new double[] { one, /*two, three*/};
+			String [] names = {"Tom", "Dick", "Harry"};
+			//List<String> list = names.asList(); //cannot find symbol
+			var other = Arrays.asList(names);
+			other.set(0, "Sue");
+}
 	}
 }
