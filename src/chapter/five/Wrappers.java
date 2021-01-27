@@ -1,5 +1,8 @@
 package chapter.five;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Wrappers {
 	public static void main(String[] args) {
 		{
@@ -55,6 +58,22 @@ public class Wrappers {
 			double v9 = Double.parseDouble("1.0"); // 1.0
 			char c = "1".charAt(0);
 			System.out.println("");
+		}
+		{
+			List<Integer> weights = new ArrayList<>();
+			Integer w = 50; // autoboxes the int primitive into an Integer obj.
+			weights.add(w);                  // [50]
+			weights.add(Integer.valueOf(60));     // [50, 60] // manual boxing
+			weights.remove(new Integer(50)); // [60] //manual boxing
+			double first = weights.get(0);   // 60.0 //autobixing and cast
+
+		}
+		{
+			List<Integer> heights = new ArrayList<>();
+			heights.add(null);
+			//int h = heights.get(0); // throws NullPointerException
+			Integer h = heights.get(0);
+			System.out.println("h = " + h);
 		}
 	}
 }

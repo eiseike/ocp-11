@@ -1,6 +1,7 @@
 package chapter.five;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class UnderstandingArrayLists {
@@ -86,15 +87,19 @@ public class UnderstandingArrayLists {
 		}
 		{
 			var numbers = new ArrayList<Integer>();
-			numbers.add(3); //add 3 to index 0 => [3]
+			numbers.add(3); //add (3 to index 0 => [3]
 			numbers.add(0, 2); //add 2 to index 0 => [2, 3]
 			numbers.add(0, 1); //add 1 to index 1 => [1, 2, 3]
+
+			//Integer.valueOf() returns an Integer object
 			boolean remove = numbers.remove(Integer.valueOf(1)); // true => [2, 3]
+
 			//boolean remove2 = numbers.remove(1); // DNC: incompatible types
 			// (1 is not an object so it is an index, so remove returns an Integer)
 
-			Integer remove1 = numbers.remove(1); // 3 => [2]
-			System.out.println("numbers = " + numbers); // [2]
+			//Integer.parseInt() returns a primitive int
+			Integer remove1 = numbers.remove(Integer.parseInt("1")); // 3 => [2]
+			System.out.println("number = " + numbers); // [2]
 		}
 		{
 			var words = new ArrayList<String>(List.of("Apple", "Bear", "Cat"));
@@ -144,6 +149,19 @@ public class UnderstandingArrayLists {
 			two.add(0, "b");                      // true -> 1[a,b], 2[b,a]
 			System.out.println(one.equals(two));  // false
 
+		}
+		{
+
+			//import java.util.ArrayList;
+			//import java.util.Collections;
+			//import java.util.List;
+
+			List<Integer> l = new ArrayList<>();
+			l.add(9);
+			l.add(1);
+			l.add(5);
+			Collections.sort(l);
+			System.out.println(l); // [1, 5, 9]
 		}
 	}
 }
