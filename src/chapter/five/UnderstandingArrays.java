@@ -266,50 +266,56 @@ public class UnderstandingArrays {
             System.out.println("Arrays.deepToString(cubbies) = " + Arrays.deepToString(cubbies));
 
         }
+
         {
-            List al = new ArrayList();
+            List<Object> al = new ArrayList<>();
             al.add(new Integer[]{1,2,3});
             al.add(new Integer[]{2,3,4});
 
-            System.out.println("al = " + al);
+            shallowAslistProofer(al, null);
 
             Object[] objects = al.toArray();
-
             Integer[] object = (Integer[]) objects[0];
             object[0]=0;
 
             Object[] objects2 = al.toArray();
-            Integer[] object2 = (Integer[]) objects[0];
-            System.out.println("object2[0] = " + object2[0]);
+            shallowAslistProofer(al, objects2);
             System.out.println("shallow!!!!!");
         }
         {
-            List al = new ArrayList();
-            al.add(1);
-            al.add(2);
-
-            System.out.println("al = " + al);
-
-            Object[] objects = al.toArray();
-
-            objects[0]=0;
-
-            Object[] objects2 = al.toArray();
-            System.out.println("objects2[0] = " + objects2[0]);
-        }
-        {
-            List al = new ArrayList();
+            List<Integer> al = new ArrayList<Integer>();
             al.add(Integer.valueOf(1));
             al.add(Integer.valueOf(2));
 
-            System.out.println("al = " + al);
+            shallowAslistProofer(al, null);
 
-            Object[] objects = al.toArray();
+            Integer[] objects = al.toArray(new Integer[0]);
 
             objects[0]=Integer.valueOf(0);
 
-            Object[] objects2 = al.toArray();
-            System.out.println("objects2[0] = " + objects2[0]);
+            Integer[] objects2 = al.toArray(new Integer[0]);
+            shallowAslistProofer(al, objects2);
+        }
+    }
+    private static void shallowAslistProofer(List<Object> as, Object[] os) {
+        if (os == null) {
+            System.out.println(" -------------------------------------------");
+        }
+        for (Object a:as) {
+            System.out.println(Arrays.deepToString((Object[]) a));
+        }
+        if (os != null) {
+            System.out.println(Arrays.deepToString(os));
+        }
+    }    private static void shallowAslistProofer(List<Integer> as, Integer[] os) {
+        if (os == null) {
+            System.out.println(" -------------------------------------------");
+        }
+        for (Integer a:as) {
+            System.out.println(a);
+        }
+        if (os != null) {
+            System.out.println(Arrays.deepToString(os));
         }
     }
 }
