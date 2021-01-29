@@ -54,5 +54,15 @@ public class SetBasics {
 				System.out.println(key + " " + map.get(key)); // koala bamboo
 
 		}
+		{
+
+			//Set<Float> f1 = Set.of(1.23); //incompatible types
+			Set<Double> d1 = Set.of(1.23);
+			Set<Float> f2 = Set.of(1.23f);
+			//Set<Double> d2 = Set.of(1.23f); //incompatible types
+
+			double d3 = 1.23f;
+			//float f3 = 1.23; // possible lossy conversion
+		}
 	}
 }

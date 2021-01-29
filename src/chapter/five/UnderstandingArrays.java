@@ -89,9 +89,23 @@ public class UnderstandingArrays {
             String[] strings = {"stringValue"};
             Object[] objects = strings;
             String[] againStrings = (String[]) objects;
+
+            // incompatible types: StringBuilder cannot be converted to String
             //againStrings[0] = new StringBuilder(); //DNC
-            //incompatible types: StringBuilder cannot be converted to String
+
+            againStrings[0] = "anotherStringValue";
+
+            // From the point of view of the compiler, this is just fine. A StringBuilder
+            // object can clearly go in an Object[]. The problem is that we don’t actually
+            // have an Object[]. We have a String[] referred to from an Object[]
+            // variable. At runtime, the code throws an ArrayStoreException.
             //objects[0] = new StringBuilder(); // throws java.lang.ArrayStoreException
+
+            objects[0] = "thisIsNotAnObjectButAString";
+
+            System.out.println("strings = " + Arrays.toString(strings));
+            System.out.println("objects = " + Arrays.toString(objects));
+            System.out.println("againStrings = " + Arrays.toString(againStrings));
 
         }
         {
