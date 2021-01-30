@@ -100,3 +100,19 @@ class SomeClass {
 	}
 }
 */
+
+class RopeSwing {
+   private static final String leftRope;
+   private static final String rightRope;
+   //private static final String bench; //DNC: variable not initialized in the default constructor
+   private static final String name = "name";
+   static {
+      leftRope = "left";
+      rightRope = "right";
+      //name = "name"; //DNC:cannot assign a value to final variable name
+      //rightRope = "right"; //DNC:cannot assign a value to final variable name
+   }
+   public static void main(String[] args) {
+      //bench = "bench"; //DNC: cannot assign a value to final variable
+   }
+}
