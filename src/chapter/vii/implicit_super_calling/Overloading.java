@@ -1,4 +1,4 @@
-package chapter.vii;
+package chapter.vii.implicit_super_calling;
 
 import java.time.LocalDate;
 import java.time.Month;
