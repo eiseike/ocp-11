@@ -15,10 +15,10 @@ public class Overloading {
 	//private int a(){} // DNC: method is already defined in class
 
 	// erasure
+	public void a(List integers) {}
 	//public void a(List<String> strings) {} // DNC: clash, same erasure
 	//public void a(List<Integer> integers) {} // DNC: clash, same erasure
-	public void a(List integers) {
-	}
+	//public void a(List<> integers) {} //DNC:illegal start of type
 
 	// legal overloads
 	public void a(String s) {
@@ -32,6 +32,8 @@ public class Overloading {
 
 	public void a(int i, String... s) {
 	}
+	//public void a(String... s, int i) {} //DNC: varargs parameter must be the last parameter
+
 
 	public void a(Integer i) {
 		System.out.println("void a(Integer i)");

@@ -13,6 +13,10 @@ public class InstanceOf {
 
         // if (null instanceof null){} //java: illegal start of type (the second null is not an object)
 
+        // if(new Integer(1) instanceof String){} //DNC: Integer cannot be converted to String
+        // //See:
+        // Integer i = (Integer)"1"; //DNC: Integer cannot be converted to String
+
     }
     public static void openZoo(Number time) {
         if(time instanceof Integer)
@@ -30,4 +34,11 @@ public class InstanceOf {
             System.out.print(time);
     }
     */
+
+    void stg() {
+        if("" instanceof Object){} //true
+        if(new Object() instanceof Object){} //true
+        if(new Object() instanceof Integer){} //false
+        if(new Integer(1) instanceof Number){} //true
+    }
 }
