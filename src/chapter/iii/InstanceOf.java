@@ -2,6 +2,16 @@ package chapter.iii;
 
 public class InstanceOf {
     public static void main(String[] args) {
+
+        Object s = "a";
+        String ss = (String) s;
+        System.out.println("ss = " + ss);
+
+        Object o = ss;
+
+
+
+
         Integer zooTime = Integer.valueOf(9);
         Number num = zooTime;
         Object obj = zooTime;

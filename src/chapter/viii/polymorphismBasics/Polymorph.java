@@ -27,8 +27,10 @@ public class Polymorph {
 		}
 		{
 			SuperC sc = new SuperC();
-			ChildC cc_from_sc = (ChildC) sc; //throws class SuperC cannot be cast to class ChildC
+			//ChildC cc_from_sc = (ChildC) sc; //throws class SuperC cannot be cast to class ChildC
 			//ChildC implicit_cc_from_sc = sc; //DNC: incompatible types: SuperC cannot be converted to ChildC
+
+			//SuperI si = new SuperI(); //SuperI is abstract; cannot be instantiated
 
 			ChildC cc = new ChildC();
 			SuperC sc_from_cc = (SuperC) cc;
@@ -36,6 +38,14 @@ public class Polymorph {
 
 			ChildC cc_from_sc_from_cc = (ChildC) sc_from_cc;
 			//ChildC implicit_cc_from_sc_from_cc = sc_from_cc; //DNC: incompatible types: SuperC cannot be converted to ChildC
+
+			SuperI si_from_cc = (SuperI) cc;
+			SuperI implicit_si_from_cc = cc;
+			ChildC cc_from_si_from_cc = (ChildC) si_from_cc;
+			System.out.println(cc_from_si_from_cc.b());
+			//ChildC implicit_cc_from_si_from_cc = si_from_cc; //DNC: incompatible types: SuperI cannot be converted to ChildC
+
+
 		}
 	}
 }
