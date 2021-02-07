@@ -1,5 +1,6 @@
 package chapter.vii.implicit_super_calling;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -7,9 +8,16 @@ import java.util.List;
 
 public class Overloading {
 
-	// same arguments
-	public void a() {
-	}
+	private void a() throws IOException {}
+
+	// you can change the access modifiers, return values, arguments and throws,
+	// but if the method name changes there is nop overloading. Changing the
+	// argument signature is necessary.
+	protected String a(Number n) {return null;}
+	private Object a(Number n, Number m) throws Exception, Error {return null;}
+	private void b() throws IOException {} //this is not an overload - just another method
+
+	// same arguments are NOT overloads
 	//public static void a(){} // DNC: method is already defined in class
 	//public String a(){} // DNC: method is already defined in class
 	//private int a(){} // DNC: method is already defined in class
@@ -19,8 +27,9 @@ public class Overloading {
 	//public void a(List<String> strings) {} // DNC: clash, same erasure
 	//public void a(List<Integer> integers) {} // DNC: clash, same erasure
 	//public void a(List<> integers) {} //DNC:illegal start of type
+	//public Object a(List integers) {return null;} //DNC: method is already defined in class
 
-	// legal overloads
+	// legal argument changes in overloads
 	public void a(String s) {
 	}
 
