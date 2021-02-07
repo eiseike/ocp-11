@@ -1,7 +1,4 @@
-package chapter.ix;
-
-import javax.management.RuntimeErrorException;
-import java.util.Scanner;
+package chapter.ix.exceptions;
 
 public class UnderstandingExceptions {
 	public static void main(String... omg) {
@@ -105,7 +102,7 @@ public class UnderstandingExceptions {
 				Thrower.throwSuperE();
 				Thrower.throwUnrelatedE();
 				// Applying a Multi-catch Block
-			} catch (UnrelatedException | SuperE e) {
+			} catch (UnrelatedException | SuperE | Thrower e) {
 			}
 		}
 		{
@@ -182,10 +179,10 @@ class SubE extends SuperE {
 
 class UnrelatedException extends Exception{}
 
-class Thrower {
+class Thrower extends Throwable {
 	public static void throwSuperE() throws SuperE {}
 	public static void throwSubE() throws SubE {}
-	public static void throwUnrelatedE() throws UnrelatedException {}
+	public static void throwUnrelatedE() throws UnrelatedException, RuntimeException, Error, Thrower {}
 }
 
 class Closeme implements AutoCloseable {
