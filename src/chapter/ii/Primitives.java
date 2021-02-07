@@ -2,26 +2,80 @@ package chapter.ii;
 
 public class Primitives {
     public static void main(String[] args) {
+        {
+            char c = 'c';       //16 bit (unsigned) unicode value
 
-        char c = 'c';       //16 bit (unsigned) unicode value
+            byte b = 1;         // 8 bit signed integral value (-127 - 128)
+            short s = 1;        //16 bit signed integral value
+            int i = 1;          //32 bit signed integral value
+            long l = 1L;        //64 bit signed integral value
 
-        byte b = 1;         // 8 bit signed integral value (-127 - 128)
-        short s = 1;        //16 bit signed integral value
-        int i = 1;          //32 bit signed integral value
-        long l = 1L;        //64 bit signed integral value
+            float f = 1.1f;     //32 bit floating-point value
+            double d = 1.1;     //64 bit floating-point value
 
-        float f = 1.1f;     //32 bit floating-point value
-        double d = 1.1;     //64 bit floating-point value
+            boolean bo = true;  //true or false
 
-        boolean bo = true;  //true or false
-
-        short bird = 'd'; //100
-        char mammal = (short) 83; //S
+            short bird = 'd'; //100
+            char mammal = (short) 83; //S
 
         /*
         short reptile = 65535;  // Error:(21, 25) java: incompatible types: possible lossy conversion from int to short
         char fish = (short)-1;  // Error:(22, 21) java: incompatible types: possible lossy conversion from short to char
         */
+
+            short reptile = (short) 65535;
+            char fish = (char) (short) -1;
+        }
+        {
+            char c = 1;
+            byte b = 1;
+            short s = 1;
+            int i = 1;
+            long l = 1;
+            float f = 1;
+            double d = 1;
+            //boolean bo = 1; // possible lossy conversion
+        }
+        {
+            //char c = -1; //possible lossy conversion
+            byte b = -1;
+            short s = -1;
+            int i = -1;
+            long l = -1;
+            float f = -1;
+            double d = -1;
+            //boolean bo = -1; //possible lossy conversion
+        }
+        {
+            //char c = 1L; //possible lossy conversion
+            //byte b = 1L; //possible lossy conversion
+            //short s = 1L; //possible lossy conversion
+            //int i = 1L; //possible lossy conversion
+            long l = 1L;
+            float f = 1L;
+            double d = 1L;
+            //boolean bo = 1L; // possible lossy conversion
+        }
+        {
+            //char c = 1f; //possible lossy conversion
+            //byte b = 1f; //possible lossy conversion
+            //short s = 1f; //possible lossy conversion
+            //int i = 1f; //possible lossy conversion
+            //long l = 1f; //possible lossy conversion
+            float f = 1f;
+            double d = 1f;
+            //boolean bo = 1; // int cannot be converted to boolean
+        }
+        {
+            //char c = 1.0; // possible lossy conversion
+            //byte b = 1.0; // possible lossy conversion
+            //short s = 1.0; // possible lossy conversion
+            //int i = 1.0; // possible lossy conversion
+            //long l = 1.0; // possible lossy conversion
+            //float f = 1.0; // possible lossy conversion
+            double d = 1.0;
+            //boolean bo = 1.0; // possible lossy conversion
+        }
 
         //Writing Literals
 
