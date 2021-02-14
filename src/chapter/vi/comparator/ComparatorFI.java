@@ -16,8 +16,10 @@ public class ComparatorFI {
 		employees.add(gergo);
 
 		System.out.println(employees); // [Adam(100), Krozus(999), Gergo(111)]
-		Comparator<Employee> compareIt = (a, b) -> a.getSalary()-b.getSalary();
+		Comparator<Employee> compareIt = (a, b) -> {return a.getSalary()-b.getSalary();};
+		Comparator<Employee> compareIt2 = (a, b) -> a.getSalary()-b.getSalary();
 		employees.sort(compareIt);
+		employees.sort(compareIt2);
 		System.out.println(employees); // [Adam(100), Gergo(111), Krozus(999)]
 	}
 }

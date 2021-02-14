@@ -1,6 +1,4 @@
-package chapter.xii.declaringFinalVariables;
-
-import java.util.Locale;
+package chapter.xii.finals;
 
 public class FinalInstanceVariables {
     public static void main(String[] args) {

@@ -1,30 +1,40 @@
 package chapter.ix.creatingInterfaces;
 
 import java.util.List;
+import java.util.function.Predicate;
 
-abstract public interface WalksOnTwoLegs {}
+abstract public interface WalksOnTwoLegs {
+}
 
 class Biped {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 //		var e = new WalksOnTwoLegs();         // DNC: WalksOnTwoLegs is abstract
-	}
+    }
 }
-//public final interface WalksOnEightLegs {}  // DNC: final
 
-///
+//final interface WalksOnEightLegs {}  // DNC: final
+
+//interface NoGood extends Object {} //DNC: interface expected here
 
 interface Nocturnal {
-	public int hunt();
+    public int hunt();
 }
 
 interface CanFly {
-	public void flap();
+    public void flap();
 }
-interface HasBigEyes extends Nocturnal, CanFly {}
+
+interface HasBigEyes extends Nocturnal, CanFly {
+}
 
 class Owl implements Nocturnal, CanFly {
-	public int hunt() { return 5; }
-	public void flap() {System.out.println("flap");}
+    public int hunt() {
+        return 5;
+    }
+
+    public void flap() {
+        System.out.println("flap");
+    }
 }
 
 ///
@@ -41,23 +51,25 @@ class Owl implements Nocturnal, CanFly {
 
 ///
 
+
 abstract class Husky {
-	abstract void play();
+    abstract void play();
 }
 
 interface Poodle {
-	void play();
+    void play();
 }
 
 class Webby extends Husky {
-	void play() {}
+    void play() {
+    }
 }
 
 class Georgette implements Poodle {
-	//void play() {} //DNC: play was public in the interface
-	public void play(){}
+    //void play() {} //DNC: play was public in the interface
+    public void play() {
+    }
 }
-
 
 
 ///./
@@ -72,68 +84,83 @@ class Wolf implements Canine {
 }
 
 class BadCasts {
-	public static void main(String[] args) {
-		Canine canine = new Wolf();
-		Canine badDog = (Dog) canine; //throws ClassCastException
-	}
+    public static void main(String[] args) {
+        Canine canine = new Wolf();
+        Canine badDog = (Dog) canine; //throws ClassCastException
+    }
 }
 
-interface AnyInterfaceEver{}
+interface AnyInterfaceEver {
+}
 
-final class AnyFinalClass{}
+final class AnyFinalClass {
+}
 
 class foo {
-	static void m(){
-		Number i = 5;
-		System.out.println(i instanceof List); //false
-		System.out.println(i instanceof AnyInterfaceEver); //false
+    static void m() {
+        Number i = 5;
+        System.out.println(i instanceof List); //false
+        System.out.println(i instanceof AnyInterfaceEver); //false
 
-		// Integer is a final class:
-		Integer i2 = 6;
-		//System.out.println(i2 instanceof AnyInterfaceEver);//DNC Integer cannot be converted to AnyInterfaceEver
+        // Integer is a final class:
+        Integer i2 = 6;
+        //System.out.println(i2 instanceof AnyInterfaceEver);//DNC Integer cannot be converted to AnyInterfaceEver
 
-		// No final class can be inherited
-		AnyFinalClass a = null;
-		//System.out.println(a instanceof AnyInterfaceEver); //DNC: AnyFinalClass cannot be converted to cAnyInterfaceEver
-	}
+        // No final class can be inherited
+        AnyFinalClass a = null;
+        //System.out.println(a instanceof AnyInterfaceEver); //DNC: AnyFinalClass cannot be converted to cAnyInterfaceEver
+    }
 }
 
-class Ca{}
-class Cb extends Ca{}
+class Ca {
+}
+
+class Cb extends Ca {
+}
 
 //covariant returns
 
 interface Ia {
-	Number foo();
+    Number foo();
 }
+
 interface Ib {
-	Comparable<Integer> foo();
+    Comparable<Integer> foo();
 }
+
 interface Ic {
-	Integer foo();
+    Integer foo();
 }
 
 class Cc implements Ia, Ib, Ic {
-	public Integer foo() {return null;} //Integer is covariant of Integer, Comparable<Integer> and Number as `public final class Integer extends Number implements Comparable<Integer>{}`
+    public Integer foo() {
+        return null;
+    } //Integer is covariant of Integer, Comparable<Integer> and Number as `public final class Integer extends Number implements Comparable<Integer>{}`
 }
 
 //trap
 
 interface Jump {
-   static public int MAX = 3;
+    static public int MAX = 3;
 }
 
 abstract class Whale implements Jump {
-   public abstract void dive();
-   public static void main(String[] args) {
-      Whale whale = new Orca();
-	   ((Orca)whale).dive(3);
-   }
+    public abstract void dive();
+
+    public static void main(String[] args) {
+        Whale whale = new Orca();
+        ((Orca) whale).dive(10);
+    }
 }
+
 class Orca extends Whale {
-   public void dive() {
-      System.out.println("Orca diving");
-   }
-   public void dive(int... depth) {
-      System.out.println("Orca diving deeper "+MAX);
-} }
+    public void dive() {
+        System.out.println("Orca diving");
+    }
+
+    public void dive(int... depth) {
+        System.out.println("Orca diving deeper " + MAX);
+    }
+}
+
+

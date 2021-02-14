@@ -1,4 +1,4 @@
-package chapter.xii.declaringFinalVariables;
+package chapter.xii.finals;
 
 public class WritingFinalMethods {
 }

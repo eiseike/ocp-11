@@ -1,4 +1,4 @@
-package chapter.xii.declaringFinalVariables;
+package chapter.xii.finals;
 
 public class FinalStaticClassVariables {
     final static String rule1 = "assign final statics (constants) when initialized";

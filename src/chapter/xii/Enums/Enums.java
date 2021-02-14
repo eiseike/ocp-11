@@ -1,7 +1,9 @@
-package chapter.xii.declaringFinalVariables;
+package chapter.xii.Enums;
 
 public class Enums {
     public static void main(String[] args) {
+
+        final var a = 2;
 
         Season s = Season.SUMMER;
         System.out.println(Season.SUMMER); // SUMMER
@@ -62,8 +64,16 @@ public class Enums {
     }
 }
 
+//enum BasicOne {
+//    SEMICOLON, IS, OPTIONAL
+//}
+//
+//enum BadFlavors {
+//    BUT, ONLY, IF, THERE, ARE, NO, HELPERS, AFTER, THE, VALUE, LIST //DNC: ',', '}', or ';' expected
+//    static final BadFlavors DEFAULT = BUT;
+//}
+
 enum Season {
-    //WINTER, SPRING, SUMMER, FALL
 
     WINTER("Low"), SPRING("Medium"), SUMMER("High"), FALL("Medium");
 

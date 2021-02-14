@@ -1,10 +1,17 @@
-package chapter.xii.declaringFinalVariables;
+package chapter.xii.finals;
 
 public class FinalLocalVariables {
 
     // a final class variable has to be assigned to a value or object once for it's lifecycle.
 
     public static void main(String[] args) {
+
+        final var i = 0;
+        final int[] t = new int[]{1, 2, 3};
+        for (final var u : t) {
+            System.out.println(u + i);
+        }
+
         printZooInfo(true);
         printZooInfo(false);
 
@@ -45,7 +52,7 @@ public class FinalLocalVariables {
         final int giraffe = 5;
         final long lemur;
         final Long lemur2;
-        if(isWeekend) lemur = 5;
+        if (isWeekend) lemur = 5;
         //giraffe = 3; //DNC: cannot assign a value to final variable giraffe
         //System.out.println(giraffe+" "+lemur); //DNC: variable lemur might not have been initialized
         //System.out.println(lemur2); //DNC: lemur2 might not have been initialized
