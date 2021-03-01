@@ -1,8 +1,6 @@
 package chapter.n.XIV;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class InmutableLists {
     public static void main(String[] args) {
@@ -42,6 +40,19 @@ public class InmutableLists {
         list.add(0,"REPLACEME"); // [REPLACEME]
         list.replaceAll(s -> "REPLACED"); // [REPLACED]
 
+
+        var greetings = new LinkedList<String>();
+        greetings.offer("hello");
+        greetings.offer("hi");
+        greetings.offer("ola");
+        greetings.pop();
+        greetings.peek();
+        while (greetings.peek() != null)
+           System.out.print(greetings.pop());
+        List<? extends Object> objects = new ArrayList<Object>();
+        Map<String, ? extends Number> hm =
+                new HashMap<String, Integer>();
+        HashSet<? super ClassCastException> set = new HashSet<Exception>();
 
     }
 }
