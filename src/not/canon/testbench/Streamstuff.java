@@ -184,6 +184,12 @@ public class Streamstuff {
                     .forEach(System.out::println);
 
         }
+        {
+            System.out.println("---");
+            Stream<String> generate = Stream.generate(() -> "1");
+            Stream<String> stringStream = generate.filter(x -> x.length() == 1);
+            stringStream.limit(1).peek(System.out::println).forEach(System.out::println);
+        }
 
     }
 
