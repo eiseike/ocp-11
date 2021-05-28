@@ -29,5 +29,15 @@ public class Broader {
             System.out.println("IOException"); //WILL PRINT THIS
         }
 
+
+        try {
+            throw new Exception(new Exception("oops"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            // java.lang.Exception: java.lang.Exception: oops
+            //     at chapter.p.XVI.Exceptions.Broader.main(Broader.java:34)
+            // Caused by: java.lang.Exception: oops
+            //     ... 1 more
+        }
     }
 }
